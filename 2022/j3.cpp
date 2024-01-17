@@ -1,55 +1,35 @@
 #include <iostream>
-#include <cstring>
 #include <bits/stdc++.h>
-#include <istream>
-#include <string>
+
 using namespace std;
 
 int main()
 {
     string s;
     cin >> s;
-    int len = s.length();
-    for (int i = 0; i < len; i++)
+    for (int i = 0 ; i < s.length(); ++i)
     {
-        if (s[i] >= 'A' || s[i] <= 'Z')
+        if (s[i]>='A' && s[i] <= 'T')
         {
-            if (isdigit(s[i]))
+            cout << s[i];
+        } else if (s[i]>='0' && s[i] <= '9')
+        {
+            cout << s[i];
+            if (s[i+1]>'9')
             {
-                cout << s[i];
-                int n = i;
-                while (n < 4)
-                {
-                    if (isdigit(s[n+1]))
-                    {
-                        cout << s[n+1];
-                        n++;
-                    } else
-                    {
-                        cout << "THIS CODE SUCKS \n";
-                        break;
-                    }
-                    
-                }
-            } else if (s[i+1] == '+' || s[i+1] == '-')
+                cout << endl;
+            }
+        } else
+        {
+            if (s[i]=='+')
             {
-                cout << " ";
-                if (s[i+1] == '+')
-                {
-                    cout << "tighten ";
-                    i++;
-                } else if (s[i+1] == '-')
-                {
-                    cout << "loosen ";
-                    i++;
-                }
-                
-            } else
+            cout << " tighten ";
+            }
+            else if (s[i]=='-')
             {
-                cout << s[i];
+            cout << " loosen ";
             }
         }
     }
-    
 
 }
